@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const Header = () => {
   return (
     <motion.header
-      className="bg-blue-500 p-6 shadow-lg dark:bg-dark-blue-500"
+      className="bg-red-500 p-6 shadow-lg dark:bg-dark-red-500"
       initial={{ y: -50 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
