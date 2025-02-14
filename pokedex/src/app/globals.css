@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #121212;
+  --foreground: #e0e0e0;
+  --primary: #bb86fc;
+  --secondary: #03dac6;
+  --accent: #3700b3;
+  --error: #cf6679;
+}
+
+body {
+  @apply bg-background text-foreground font-sans transition-colors duration-500;
+}
+
+h1 {
+  @apply text-6xl font-extrabold text-center text-primary my-8;
+}
+
+ul {
+  @apply list-none p-0;
+}
+
+li {
+  @apply bg-gray-800 m-4 p-6 rounded-xl shadow-xl transition-transform duration-200 hover:scale-105;
+}
+
+a {
+  @apply text-secondary no-underline hover:text-accent;
+}
+
+/* Definir classes personalizadas para o tema escuro */
+@layer utilities {
+  .bg-background {
+    --tw-bg-opacity: 1;
+    background-color: rgba(18, 18, 18, var(--tw-bg-opacity));
+  }
+  .text-foreground {
+    --tw-text-opacity: 1;
+    color: rgba(224, 224, 224, var(--tw-text-opacity));
+  }
+  .bg-gray-900 {
+    --tw-bg-opacity: 1;
+    background-color: rgba(17, 17, 17, var(--tw-bg-opacity));
+  }
+  .bg-gray-800 {
+    --tw-bg-opacity: 1;
+    background-color: rgba(31, 31, 31, var(--tw-bg-opacity));
+  }
+  .text-primary {
+    --tw-text-opacity: 1;
+    color: rgba(187, 134, 252, var(--tw-text-opacity));
+  }
+  .text-secondary {
+    --tw-text-opacity: 1;
+    color: rgba(3, 218, 198, var(--tw-text-opacity));
+  }
+  .text-accent {
+    --tw-text-opacity: 1;
+    color: rgba(55, 0, 179, var(--tw-text-opacity));
+  }
+  .text-error {
+    --tw-text-opacity: 1;
+    color: rgba(207, 102, 121, var(--tw-text-opacity));
+  }
+}
