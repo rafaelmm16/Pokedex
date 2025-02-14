@@ -14,3 +14,8 @@ yarn dev
 pnpm dev
 # ou
 bun dev
+```
+
+## IMG
+
+![Alt text](img.png)
