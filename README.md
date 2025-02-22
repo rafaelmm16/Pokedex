@@ -4,7 +4,12 @@ Este é um projeto [Next.js](https://nextjs.org) criado com [`create-next-app`](
 
 ## Começando
 
-Primeiro, execute o servidor de desenvolvimento:
+Primeiro, instale as dependências:
+```bash
+npm install
+```
+
+Depois execute o servidor de desenvolvimento:
 
 ```bash
 npm run dev
