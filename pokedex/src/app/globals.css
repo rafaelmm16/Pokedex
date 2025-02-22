@@ -31,6 +31,22 @@ a {
   @apply text-secondary no-underline hover:text-accent;
 }
 
+/* Efeito cintilante */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.1) 40%, rgba(255, 255, 255, 0.1) 100%);
+  background-size: 2000px 100%;
+  animation: shimmer 2s infinite linear;
+}
+
 /* Definir classes personalizadas para o tema escuro */
 @layer utilities {
   .bg-background {
@@ -65,4 +81,32 @@ a {
     --tw-text-opacity: 1;
     color: rgba(207, 102, 121, var(--tw-text-opacity));
   }
+  .bg-secondary {
+    --tw-bg-opacity: 1;
+    background-color: rgba(200, 28, 98, var(--tw-bg-opacity));
+  }
+  .text-black {
+    --tw-text-opacity: 1;
+    color: rgba(0, 0, 0, var(--tw-text-opacity));
+  }
+
+  /* Estilos personalizados para as cores dos tipos */
+  .bg-normal { background-color: #A8A77A; }
+  .bg-fire { background-color: #EE8130; }
+  .bg-water { background-color: #6390F0; }
+  .bg-grass { background-color: #7AC74C; }
+  .bg-electric { background-color: #F7D02C; }
+  .bg-ice { background-color: #96D9D6; }
+  .bg-fighting { background-color: #C22E28; }
+  .bg-poison { background-color: #A33EA1; }
+  .bg-ground { background-color: #E2BF65; }
+  .bg-flying { background-color: #A98FF3; }
+  .bg-psychic { background-color: #F95587; }
+  .bg-bug { background-color: #A6B91A; }
+  .bg-rock { background-color: #B6A136; }
+  .bg-ghost { background-color: #735797; }
+  .bg-dragon { background-color: #6F35FC; }
+  .bg-dark { background-color: #705746; }
+  .bg-steel { background-color: #B7B7CE; }
+  .bg-fairy { background-color: #D685AD; }
 }
