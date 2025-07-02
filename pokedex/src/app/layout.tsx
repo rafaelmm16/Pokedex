@@ -1,6 +1,7 @@
 "use client";
 
 import '../app/globals.css';
+import SideMenu from '../components/SideMenu'; // Importe o SideMenu
 
 export default function RootLayout({
   children,
@@ -10,7 +11,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className="bg-background text-foreground font-sans transition-colors duration-500">
-        {children}
+        <div className="flex">
+          <SideMenu />
+          <div className="flex-1">
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );

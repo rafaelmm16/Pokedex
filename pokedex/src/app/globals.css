@@ -110,3 +110,16 @@ a {
   .bg-steel { background-color: #B7B7CE; }
   .bg-fairy { background-color: #D685AD; }
 }
+
+/* Estilos personalizados para o menu lateral */
+@layer utilities {
+  .bg-pokedex-red {
+    background-color: #00ac6a; /* Um tom de vermelho vibrante */
+  }
+  .bg-pokedex-red-dark {
+    background-color: #1366ff; /* Um tom mais escuro para o item ativo */
+  }
+  .bg-pokedex-red-light {
+    background-color: #d1d400; /* Um tom mais claro para o hover */
+  }
+}
