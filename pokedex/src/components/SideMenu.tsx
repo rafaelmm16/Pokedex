@@ -20,20 +20,22 @@ const SideMenu = () => {
   const offset = searchParams.get('offset') || '0';
 
   return (
-    <aside className="w-64 bg-pokedex-red text-white p-4 shadow-lg">
-      <h2 className="text-3xl font-bold mb-5 text-center">Gerações</h2>
+    <aside className="w-64 bg-side-menu text-white p-4 shadow-2xl">
+      <h2 className="text-3xl font-bold mb-6 text-center text-side-menu-title tracking-wider">
+        Gerações
+      </h2>
       <nav>
         <ul>
           {generations.map((gen, index) => {
             const isActive = limit === String(gen.limit) && offset === String(gen.offset);
             return (
-              <li key={index} className="mb-2">
+              <li key={index} className="mb-3">
                 <Link
                   href={`/?limit=${gen.limit}&offset=${gen.offset}`}
-                  className={`block p-3 rounded-lg text-lg transition-all duration-200 ${
+                  className={`block p-4 rounded-md text-lg font-semibold transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg ${
                     isActive
-                      ? 'bg-pokedex-red-dark shadow-inner'
-                      : 'hover:bg-pokedex-red-light hover:scale-105'
+                      ? 'bg-side-menu-item-active text-white'
+                      : 'bg-gray-700 hover:bg-side-menu-item-hover'
                   }`}
                 >
                   {gen.name}

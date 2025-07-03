@@ -111,15 +111,19 @@ a {
   .bg-fairy { background-color: #D685AD; }
 }
 
-/* Estilos personalizados para o menu lateral */
+/* Estilos personalizados para o menu lateral com novas cores e efeitos */
 @layer utilities {
-  .bg-pokedex-red {
-    background-color: #00ac6a; /* Um tom de vermelho vibrante */
+  .bg-side-menu {
+    background-color: #44475a; /* Cinza escuro para o fundo do menu */
   }
-  .bg-pokedex-red-dark {
-    background-color: #1366ff; /* Um tom mais escuro para o item ativo */
+  .text-side-menu-title {
+    color: #f8f8f2; /* Branco para o título */
   }
-  .bg-pokedex-red-light {
-    background-color: #d1d400; /* Um tom mais claro para o hover */
+  .bg-side-menu-item-active {
+    background: linear-gradient(to right, var(--primary), var(--accent)); /* Gradiente para o item ativo */
+    box-shadow: 0 4px 15px 0 rgba(189, 147, 249, 0.75);
+  }
+  .hover\:bg-side-menu-item-hover:hover {
+    background-color: #6272a4; /* Azul acinzentado para o hover */
   }
 }
