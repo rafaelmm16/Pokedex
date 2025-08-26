@@ -4,14 +4,14 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 
 const generations = [
-  { name: 'Geração 1', limit: 151, offset: 0 },
-  { name: 'Geração 2', limit: 100, offset: 151 },
-  { name: 'Geração 3', limit: 135, offset: 251 },
-  { name: 'Geração 4', limit: 107, offset: 386 },
-  { name: 'Geração 5', limit: 156, offset: 493 },
-  { name: 'Geração 6', limit: 72, offset: 649 },
-  { name: 'Geração 7', limit: 88, offset: 721 },
-  { name: 'Geração 8', limit: 96, offset: 809 },
+  { name: 'Geração 1', limit: 151, offset: 0, region: 'Kanto' },
+  { name: 'Geração 2', limit: 100, offset: 151, region: 'Johto' },
+  { name: 'Geração 3', limit: 135, offset: 251, region: 'Hoenn' },
+  { name: 'Geração 4', limit: 107, offset: 386, region: 'Sinnoh' },
+  { name: 'Geração 5', limit: 156, offset: 493, region: 'Unova' },
+  { name: 'Geração 6', limit: 72, offset: 649, region: 'Kalos' },
+  { name: 'Geração 7', limit: 88, offset: 721, region: 'Alola' },
+  { name: 'Geração 8', limit: 96, offset: 809, region: 'Galar' },
 ];
 
 const SideMenu = () => {
