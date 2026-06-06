@@ -48,7 +48,7 @@ const typeColors: Record<string, string> = {
 const PokemonDetail = () => {
   const params = useParams();
   const { id } = params;
-  const [pokemon, setPokemon] = useState(null);
+  const [pokemon, setPokemon] = useState<Pokemon | null>(null);
 
   useEffect(() => {
     const fetchPokemonDetail = async () => {

@@ -7,7 +7,23 @@ import Link from 'next/link';
 
 /* eslint-disable @next/next/no-img-element */
 
-const typeColors = {
+interface Pokemon {
+  id: number;
+  name: string;
+  types: { type: { name: string } }[];
+  sprites: {
+    front_default: string;
+    other?: {
+      'official-artwork'?: {
+        front_default: string;
+      };
+    };
+  };
+  height: number;
+  weight: number;
+}
+
+const typeColors: Record<string, string> = {
     normal: 'bg-normal',
     fire: 'bg-fire',
     water: 'bg-water',
@@ -29,7 +45,7 @@ const typeColors = {
 };
 
 const PokemonList = () => {
-  const [pokemonList, setPokemonList] = useState([]);
+  const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -39,7 +55,7 @@ const PokemonList = () => {
 
       const response = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
       const pokemonDetails = await Promise.all(
-        response.data.results.map(async (pokemon) => {
+        response.data.results.map(async (pokemon: { name: string; url: string }) => {
           const pokemonDetail = await axios.get(pokemon.url);
           return pokemonDetail.data;
         })
@@ -74,7 +90,7 @@ const PokemonList = () => {
                   </h2>
                   
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {pokemon.types.map((typeInfo, idx) => (
+                    {pokemon.types.map((typeInfo, idx: number) => (
                       <span 
                         key={idx} 
                         className="bg-white/25 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider backdrop-blur-sm shadow-sm"

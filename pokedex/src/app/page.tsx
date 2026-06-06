@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 import Header from '../components/Header';
@@ -18,12 +19,23 @@ const generations = [
   { name: 'Geração 8', limit: 96, offset: 809, region: 'Galar' },
 ];
 
-export default function Home() {
+function HomeContent() {
   const searchParams = useSearchParams();
   const offset = searchParams.get('offset') || '0';
   const currentGeneration = generations.find(gen => String(gen.offset) === offset);
   const title = `Bem-vindo à Pokédex de ${currentGeneration ? currentGeneration.region : 'Kanto'}!`;
 
+  return (
+    <>
+      <h1 className="text-6xl font-extrabold text-center text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)] my-8 tracking-wide">
+        {title}
+      </h1>
+      <PokemonList />
+    </>
+  );
+}
+
+export default function Home() {
   return (
     <div className="min-h-screen">
       <Header />
@@ -33,10 +45,9 @@ export default function Home() {
         transition={{ duration: 0.5 }}
         className="container mx-auto p-6"
       >
-        <h1 className="text-6xl font-extrabold text-center text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)] my-8 tracking-wide">
-          {title}
-        </h1>
-        <PokemonList />
+        <Suspense fallback={<div className="text-center text-white py-10 text-2xl">Carregando Pokédex...</div>}>
+          <HomeContent />
+        </Suspense>
       </motion.main>
       <Footer />
     </div>
