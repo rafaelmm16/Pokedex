@@ -5,9 +5,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-const capitalizeFirstLetter = (string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
+/* eslint-disable @next/next/no-img-element */
 
 const typeColors = {
     normal: 'bg-normal',

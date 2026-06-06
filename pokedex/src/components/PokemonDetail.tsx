@@ -4,9 +4,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 
-const capitalizeFirstLetter = (string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
+/* eslint-disable @next/next/no-img-element */
 
 const typeColors = {
   normal: 'bg-normal',
