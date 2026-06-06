@@ -13,12 +13,6 @@ Depois execute o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# ou
-yarn dev
-# ou
-pnpm dev
-# ou
-bun dev
 ```
 
 ## IMG
