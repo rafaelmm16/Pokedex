@@ -3,6 +3,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 
 const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -64,7 +65,7 @@ const PokemonList = () => {
               key={index} 
               className={`${bgClass} group !m-0 !p-0 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative`}
             >
-              <a href={`/pokemon/${pokemon.id}`} className="block h-full w-full p-6 text-white text-decoration-none">
+              <Link href={`/pokemon/${pokemon.id}`} className="block h-full w-full p-6 text-white text-decoration-none">
                 <div className="absolute top-4 right-6 opacity-30 text-5xl font-black italic z-0 pointer-events-none">
                   #{String(pokemon.id).padStart(3, '0')}
                 </div>
@@ -108,7 +109,7 @@ const PokemonList = () => {
                     </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             </li>
           );
         })}
