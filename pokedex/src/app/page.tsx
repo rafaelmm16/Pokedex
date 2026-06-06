@@ -25,7 +25,7 @@ export default function Home() {
   const title = `Bem-vindo à Pokédex de ${currentGeneration ? currentGeneration.region : 'Kanto'}!`;
 
   return (
-    <div className="bg-background min-h-screen">
+    <div className="min-h-screen">
       <Header />
       <motion.main
         initial={{ opacity: 0 }}
@@ -33,7 +33,9 @@ export default function Home() {
         transition={{ duration: 0.5 }}
         className="container mx-auto p-6"
       >
-        <h1 className="text-6xl font-extrabold text-center text-primary my-8">{title}</h1>
+        <h1 className="text-6xl font-extrabold text-center text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)] my-8 tracking-wide">
+          {title}
+        </h1>
         <PokemonList />
       </motion.main>
       <Footer />

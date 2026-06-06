@@ -1,7 +1,7 @@
 "use client";
 
-import '../app/globals.css';
-import SideMenu from '../components/SideMenu'; // Importe o SideMenu
+import './globals.css';
+import SideMenu from '../components/SideBar';
 
 export default function RootLayout({
   children,

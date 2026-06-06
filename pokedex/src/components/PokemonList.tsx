@@ -52,36 +52,68 @@ const PokemonList = () => {
   }, [searchParams]);
 
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      {pokemonList.map((pokemon, index) => (
-        <li key={index} className="bg-gradient-to-r from-purple-500 to-purple-700 text-white p-4 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 dark:from-dark-purple-500 dark:to-dark-purple-700 dark:text-dark-white">
-          <a href={`/pokemon/${pokemon.id}`}>
-            <div>
-              <h2 className="text-xl font-bold">{capitalizeFirstLetter(pokemon.name)}</h2>
-              {pokemon.sprites?.front_default && (
-                <img src={pokemon.sprites.front_default} alt={pokemon.name} className="w-20 h-20 mx-auto" />
-              )}
-              <p>Height: {pokemon.height}</p>
-              <p>Weight: {pokemon.weight}</p>
-              <h3 className="font-semibold mt-2">Abilities:</h3>
-              <ul>
-                {pokemon.abilities.map((ability, index) => (
-                  <li key={index}>{ability.ability.name}</li>
-                ))}
-              </ul>
-              <h3 className="font-semibold mt-2">Types:</h3>
-              <ul className="flex flex-wrap gap-2">
-                {pokemon.types.map((typeInfo, index) => (
-                  <li key={index} className={`${typeColors[typeInfo.type.name]} text-black px-2 py-1 rounded`}>
-                    {capitalizeFirstLetter(typeInfo.type.name)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div className="p-8">
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {pokemonList.map((pokemon, index) => {
+          const mainType = pokemon.types && pokemon.types.length > 0 ? pokemon.types[0].type.name : 'normal';
+          const bgClass = typeColors[mainType] || 'bg-gray-800';
+          const imageUrl = pokemon.sprites?.other?.['official-artwork']?.front_default || pokemon.sprites?.front_default;
+          
+          return (
+            <li 
+              key={index} 
+              className={`${bgClass} group !m-0 !p-0 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative`}
+            >
+              <a href={`/pokemon/${pokemon.id}`} className="block h-full w-full p-6 text-white text-decoration-none">
+                <div className="absolute top-4 right-6 opacity-30 text-5xl font-black italic z-0 pointer-events-none">
+                  #{String(pokemon.id).padStart(3, '0')}
+                </div>
+                
+                <div className="relative z-10 flex flex-col h-full">
+                  <h2 className="text-3xl font-extrabold mb-4 capitalize drop-shadow-md">
+                    {pokemon.name}
+                  </h2>
+                  
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {pokemon.types.map((typeInfo, idx) => (
+                      <span 
+                        key={idx} 
+                        className="bg-white/25 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider backdrop-blur-sm shadow-sm"
+                      >
+                        {typeInfo.type.name}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex-1 flex justify-center items-center my-4">
+                    {imageUrl && (
+                      <img 
+                        src={imageUrl} 
+                        alt={pokemon.name} 
+                        className="w-48 h-48 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-300" 
+                      />
+                    )}
+                  </div>
+                  
+                  <div className="bg-black/20 rounded-2xl p-4 mt-auto backdrop-blur-md">
+                    <div className="grid grid-cols-2 gap-4 text-center">
+                      <div>
+                        <p className="text-white/60 text-xs font-bold uppercase tracking-widest mb-1">Altura</p>
+                        <p className="font-semibold text-lg">{pokemon.height / 10} m</p>
+                      </div>
+                      <div>
+                        <p className="text-white/60 text-xs font-bold uppercase tracking-widest mb-1">Peso</p>
+                        <p className="font-semibold text-lg">{pokemon.weight / 10} kg</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 };
 

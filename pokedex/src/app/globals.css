@@ -12,7 +12,8 @@
 }
 
 body {
-  @apply bg-background text-foreground font-sans transition-colors duration-500;
+  @apply bg-[#c72c0a] text-foreground font-sans transition-colors duration-500 min-h-screen bg-fixed;
+  background-image: linear-gradient(to bottom, #e3350d, #901a04);
 }
 
 h1 {
@@ -114,16 +115,40 @@ a {
 /* Estilos personalizados para o menu lateral com novas cores e efeitos */
 @layer utilities {
   .bg-side-menu {
-    background-color: #44475a; /* Cinza escuro para o fundo do menu */
+    background-image: linear-gradient(to bottom, #e3350d, #901a04);
   }
   .text-side-menu-title {
-    color: #f8f8f2; /* Branco para o título */
+    color: #ffd700; /* Dourado/Amarelo para combinar com o titulo da pokedex */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
   }
   .bg-side-menu-item-active {
-    background: linear-gradient(to right, var(--primary), var(--accent)); /* Gradiente para o item ativo */
-    box-shadow: 0 4px 15px 0 rgba(189, 147, 249, 0.75);
+    background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.8));
+    border-color: #ffd700;
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.5);
   }
   .hover\:bg-side-menu-item-hover:hover {
-    background-color: #6272a4; /* Azul acinzentado para o hover */
+    background-color: rgba(0,0,0,0.3);
   }
+}
+
+/* Custom Scrollbar for Sidebar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.2);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #551102;
+  border-radius: 20px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #ffcc00;
+}
+
+/* Float animation for Pokemon image */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
